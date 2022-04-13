@@ -1,0 +1,12 @@
+
+2022/04
+
+1. Use of mem.c and mem.h functions should be removed.
+2. mem_test.c is then depracated, too.
+3. I removed the use of deprecated functions in mem.c, and replaced them with
+   dummies. I tried test_sphere.c, however the code has a Segmentation fault (core dumped). This seems to happen w/o invoking any real contact angle stuff.
+   
+4. test_sphere.c has bee compiled and tested.
+5. contact_angle_main.c needs addition of the option to read in general uchar segmented files.
+6. need to upload to github
+7. need to add examples for all input options for contact_angle_main.c
