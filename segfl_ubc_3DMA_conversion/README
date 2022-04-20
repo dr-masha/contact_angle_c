@@ -1,0 +1,28 @@
+1. COMPILATION
+- type 'make'
+- the executable is 'convert_ubc_3dma'
+
+2. USAGE
+convert_ubc_3dma fname_in_ubc nx ny nz fname_out_3dma
+    
+    fname_in_ubc - filename (including the path to it) of the unsigned char 
+                   binary array; it can be zipped (.gz)
+    nx,ny,nz     - number of voxels in x,y,z directions
+                   The data is assumed to be packed as follows
+		   packing_index = k*nx*ny + j*ny + i
+		   (store data z-plane by z-plane; within each plane,
+		    y direction is stored first then x
+		    This is C/C++ convention.
+		    Fortran and Matlab store data as 		   
+		   packing_index = k*nx*ny + i*nx + j
+    fname_out_3dma - filename for 3DMA file (it will be zipped  by default)	
+
+3. TESTING
+data128.gz is an original 3DMA segmented file
+data128ubc.gz is an unsigned character version of it (produced by case2.22 3DMA)
+
+If testing current routine do
+> convert_ubc_3dma data128.gz 128 128 128 data128_3dma
+
+The resulting file should be identical (in uncompressed format) to data128 
+
